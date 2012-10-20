@@ -1,0 +1,8 @@
+<h2>Dashboard</h2>
+
+<% if current_team.try(:admin?) %>
+	<h3><%= link_to "Locations", locations_url %></h3>
+	<h3><%= link_to "Clues", clues_url %></h3>
+	<h3><%= link_to "Hints", hints_url %></h3>
+	<h3><%= link_to "Clue Maps", clue_maps_url %></h3>
+<% end %>

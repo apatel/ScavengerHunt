@@ -17,4 +17,4 @@
 # Other Stuff
 config/database.yml
 *.swp
-*.DStore
+*/.DStore

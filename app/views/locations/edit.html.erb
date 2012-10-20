@@ -1,0 +1,10 @@
+<h2>Edit Location</h2>
+
+<%= semantic_form_for(@location) do |f| %>
+    <%= f.inputs do %>
+	  <%= f.input :name, :label => "Name: " %>
+	<% end %>
+	<%= f.actions %>
+<% end %>
+
+<p><%= link_to 'All Locations', locations_path %></p>

@@ -1,0 +1,11 @@
+<h2>Edit Clue</h2>
+
+<%= semantic_form_for(@clue) do |f| %>
+    <%= f.inputs do %>
+	  <%= f.input :clue_text, :label => "Clue Text: " %>
+	  <%= f.input :location, :label => "For Location: " %>
+	<% end %>
+	<%= f.actions %>
+<% end %>
+
+<p><%= link_to 'All Clues', clues_path %></p>

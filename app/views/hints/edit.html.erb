@@ -1,0 +1,11 @@
+<h2>Edit Hint</h2>
+
+<%= semantic_form_for(@hint) do |f| %>
+    <%= f.inputs do %>
+	  <%= f.input :hint_text, :label => "Hint Text: " %>
+	  <%= f.input :clue, :label => "For Clue: " %>
+	<% end %>
+	<%= f.actions %>
+<% end %>
+
+<p><%= link_to 'All Hints', hints_path %></p>

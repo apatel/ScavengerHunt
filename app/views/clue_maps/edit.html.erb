@@ -1,0 +1,12 @@
+<h2>Edit Clue Map</h2>
+
+<%= semantic_form_for(@clue_map) do |f| %>
+    <%= f.inputs do %>
+	  <%= f.input :team, :label => "Team: " %>
+	  <%= f.input :current_location, :label => "Current Location: " %>
+	  <%= f.input :next_location, :label => "Next Location: " %>
+	<% end %>
+	<%= f.actions %>
+<% end %>
+
+<p><%= link_to 'All Clue Maps', clue_maps_path %></p>

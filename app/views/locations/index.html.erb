@@ -1,0 +1,19 @@
+<h2>Locations</h2>
+
+<h3><%= link_to "Add New", new_location_url %></h3>
+
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Actions</td>
+	</tr>	
+<% @locations.each do |location| %>
+<tr>
+  <td><%= location.name %></td>
+  <td>
+  	<%= link_to "Edit", edit_location_url(location) %> | 
+  	<%= link_to "Delete", location, confirm: 'Are you sure?', method: :delete %>
+</td>
+</tr>
+<% end %>
+</table>

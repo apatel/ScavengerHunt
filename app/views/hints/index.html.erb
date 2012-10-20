@@ -1,0 +1,19 @@
+<h2>Hints</h2>
+
+<h3><%= link_to "Add New", new_hint_url %></h3>
+
+<table>
+	<tr>
+		<td>Hint Text</td>
+		<td>Actions</td>
+	</tr>	
+<% @hints.each do |hint| %>
+<tr>
+  <td><%= hint.hint_text %></td>
+  <td>
+  	<%= link_to "Edit", edit_hint_url(hint) %> | 
+  	<%= link_to "Delete", hint, confirm: 'Are you sure?', method: :delete %>
+</td>
+</tr>
+<% end %>
+</table>

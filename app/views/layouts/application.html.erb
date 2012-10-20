@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<h1><%= link_to "Scavenger Hunt", root_url %></h1>
+	<div id="utility">
+		<% if team_signed_in? %>
+          Signed in as <%= current_team.login %>. Not you?
+          <%= link_to "Sign out", destroy_team_session_path, :method => :delete %> or <%= link_to "edit account", edit_team_registration_path %>
+		<% else %>
+		  <%= link_to "Sign in", new_team_session_path %>
+        <% end %> 
+    </div>
 
 <%= yield %>
 

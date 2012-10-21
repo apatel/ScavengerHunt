@@ -1,6 +1,6 @@
 class ClueMapsController < ApplicationController
   def index
-    @clue_maps = ClueMap.all
+    @teams = Team.all
   end  
   
   def edit

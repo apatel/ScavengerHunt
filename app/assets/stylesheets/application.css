@@ -12,6 +12,17 @@
  *= require_tree .
  */
 
- fieldset {
- 	border: none;
- }
+fieldset {
+	border: none;
+}
+
+#logo {
+	width: 20%;
+	float: left;
+}
+ 
+#utility {
+	font-size: .8em;
+	float: right;
+	text-align: right;
+}

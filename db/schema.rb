@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20121020222106) do
     t.integer  "team_id"
     t.integer  "current_location_id"
     t.integer  "next_location_id"
+    t.boolean  "first"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

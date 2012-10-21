@@ -4,6 +4,7 @@ class CreateClueMaps < ActiveRecord::Migration
       t.references :team
       t.references :current_location
       t.references :next_location
+      t.boolean :first
       t.timestamps
     end
   end

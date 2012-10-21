@@ -1,3 +1,19 @@
 <h2>Clue Maps</h2>
 
 <h3><%= link_to "Add New", new_clue_map_url %></h3>
+
+<% @teams.each do |team| %>
+  <p>
+  <% clue_map = ClueMap.find(:all, :conditions => {:team_id => team.id}) %>
+  <% first = ClueMap.find(:first, :conditions => {:team_id => team.id, :first => true}) %>
+  <% unless first.nil? || clue_map.nil? %>
+    <h4><%= team.login %></h4>
+    <%= first.current_location.name %>* -> <%= first.next_location.name %><br />
+  <% end %>
+  <% clue_map.each do |stop| %>
+    <% unless stop==first %>
+      <%= stop.current_location.name %> -> <%= stop.next_location.name %><br />
+	<% end %>  
+  <% end %>
+  </p>
+<% end %>

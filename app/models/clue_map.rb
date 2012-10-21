@@ -4,5 +4,5 @@ class ClueMap < ActiveRecord::Base
   belongs_to :next_location, :class_name => "Location"
   belongs_to :team
   
-  attr_accessible :team_id, :current_location_id, :next_location_id
+  attr_accessible :team_id, :current_location_id, :next_location_id, :first
 end

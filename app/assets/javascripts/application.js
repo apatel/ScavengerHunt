@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery-ui
+
+function toggle_hints(id) {
+	var e = document.getElementById(id);
+    if(e.style.display == 'block')
+    	e.style.display = 'none';
+    else
+        e.style.display = 'block';
+}

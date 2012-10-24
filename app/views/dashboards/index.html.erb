@@ -5,4 +5,9 @@
 	<h3><%= link_to "Clues", clues_url %></h3>
 	<h3><%= link_to "Hints", hints_url %></h3>
 	<h3><%= link_to "Clue Maps", clue_maps_url %></h3>
+	
+<% elsif team_signed_in? %>	
+	<h3><%= link_to "View First Clue", show_clue_clue_maps_url(:team_id => current_team.id, :first => true) %></h3>
+<% else %>	
+	Welcome to the Scavenger Hunt Application!
 <% end %>

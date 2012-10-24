@@ -7,6 +7,14 @@ class ClueMapsController < ApplicationController
     @clue_map = ClueMap.find(params[:id])
   end
   
+  def show_clue
+    if params[:first]
+      @clue = ClueMap.find(:first, :conditions => {:team_id => params[:team_id], :first => true})
+    else
+      @clue = ClueMap.find(:first, :conditions => {:team_id => params[:team_id], :current_location => params[:current]})
+    end
+  end  
+  
   def new
     @clue_map = ClueMap.new
 

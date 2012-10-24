@@ -11,18 +11,29 @@
  *= require_self
  *= require_tree .
  */
-
-fieldset {
-	border: none;
-}
-
-#logo {
-	width: 20%;
-	float: left;
-}
  
-#utility {
+ body {
+ 	background: url(/assets/ravenna.png) #8c8179 repeat top center;
+	font-family: Verdana;
+ }
+
+ fieldset {
+ 	border: none;
+ }
+
+ #logo {
+    width: 100%;
+	float: left;
+	font-size: 2em;
+	font-weight: bold;
+ }
+ 
+ #utility {
 	font-size: .8em;
-	float: right;
-	text-align: right;
-}
+	float: left;
+	text-align: left;
+ }
+ #content {
+	width: 100%;
+	float: left;
+ }

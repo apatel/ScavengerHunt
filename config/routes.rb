@@ -1,4 +1,6 @@
 ScavengerHunt::Application.routes.draw do
+  resources :check_ins
+
   resources :clue_maps do
     collection do
       get 'show_clue'

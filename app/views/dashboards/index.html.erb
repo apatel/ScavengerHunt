@@ -8,6 +8,21 @@
 	<h3><%= link_to "Test Check In Page", check_in_clue_maps_url(:current => 3) %></h3>
 <% elsif team_signed_in? %>	
   	<h3>Welcome <%= current_team.login %>!</h3>
+	<% unless @check_ins.nil? %>
+	  <table class="table table_condensed table-striped">
+		<tr>
+			<td>Location</td>
+			<td>Time of Check In</td>
+		</tr>	
+	  <% @check_ins.each do |check_in| %>
+	    <tr>
+	      <td><%= check_in.location.name %></td>
+		  <td><%= check_in.created_at.strftime("%I:%M%p") %></td>
+	    </tr>
+	  <% end %>
+	  </table>
+	<% end %>
+	
 	<h4><%= link_to "View First Clue", show_clue_clue_maps_url(:team_id => current_team.id, :first => true) %></h4>
 <% else %>	
 	Welcome to the Scavenger Hunt Application!

@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020222106) do
+ActiveRecord::Schema.define(:version => 20121026125337) do
+
+  create_table "check_ins", :force => true do |t|
+    t.integer  "team_id",     :null => false
+    t.integer  "location_id", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "clue_maps", :force => true do |t|
     t.integer  "team_id"

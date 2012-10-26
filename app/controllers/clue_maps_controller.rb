@@ -50,11 +50,14 @@ class ClueMapsController < ApplicationController
   
   def show_clue
     if params[:first] and params[:team_id] != nil
-      @clue = ClueMap.find(:first, :conditions => {:team_id => params[:team_id], :first => true})
+      team = Team.find(params[:team_id])
+      @clue = ClueMap.find(:first, :conditions => {:team_id => team.id, :first => true})
     else
       team = Team.find_by_login(params[:login])
       @clue = ClueMap.find(:first, :conditions => {:team_id => team.id, :current_location_id => params[:current]})
     end
+    @check_in = CheckIn.new(:team_id => team.id, :location_id => @clue.current_location.id)
+    @check_in.save!
   end
   
   def check_in

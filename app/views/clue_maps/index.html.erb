@@ -16,4 +16,24 @@
 	<% end %>  
   <% end %>
   </p>
+  
+  <% unless first.nil? || clue_map.nil? %>
+  <% @check_ins = CheckIn.find(:all, :conditions => {:team_id => team.id}) %>
+  <% unless @check_ins.nil? %>
+  <table class="table table_condensed table-striped">
+	<tr>
+		<th>Location</th>
+		<th>Time of Check In</th>
+		<th>Actions</th>
+	</tr>	
+    <% @check_ins.each do |check_in| %>
+    <tr>
+      <td><%= check_in.location.name %></td>
+	  <td><%= check_in.created_at.strftime("%I:%M%p") %></td>
+	  <td><%= link_to "Delete", check_in, confirm: 'Are you sure?', :controller => "check_ins", method: :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
+  <% end %>
 <% end %>

@@ -61,7 +61,7 @@ class ClueMapsController < ApplicationController
   end
   
   def check_in
-    #format of URL for tag: http://0.0.0.0:3000/clue_maps/check_in?current=2
+    #format of URL for tag: http://DOMAIN/clue_maps/check_in?current=2
     @current_location = params[:current]
   end  
   

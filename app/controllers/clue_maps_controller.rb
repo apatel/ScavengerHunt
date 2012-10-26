@@ -5,14 +5,6 @@ class ClueMapsController < ApplicationController
   
   def edit
     @clue_map = ClueMap.find(params[:id])
-  end
-  
-  def show_clue
-    if params[:first]
-      @clue = ClueMap.find(:first, :conditions => {:team_id => params[:team_id], :first => true})
-    else
-      @clue = ClueMap.find(:first, :conditions => {:team_id => params[:team_id], :current_location => params[:current]})
-    end
   end  
   
   def new
@@ -55,5 +47,19 @@ class ClueMapsController < ApplicationController
       format.html { redirect_to clue_maps_url }
     end
   end
+  
+  def show_clue
+    if params[:first] and params[:team_id] != nil
+      @clue = ClueMap.find(:first, :conditions => {:team_id => params[:team_id], :first => true})
+    else
+      team = Team.find_by_login(params[:login])
+      @clue = ClueMap.find(:first, :conditions => {:team_id => team.id, :current_location_id => params[:current]})
+    end
+  end
+  
+  def check_in
+    #format of URL for tag: http://0.0.0.0:3000/clue_maps/check_in?current=2
+    @current_location = params[:current]
+  end  
   
 end

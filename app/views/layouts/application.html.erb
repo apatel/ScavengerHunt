@@ -3,21 +3,36 @@
 <head>
   <title>ScavengerHunt</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap.min", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap.responsive", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap.min" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="utility">
-		<% if team_signed_in? %>
-          Signed in as <%= current_team.login %>. Not you?
-          <%= link_to "Sign out", destroy_team_session_path, :method => :delete %> or <%= link_to "edit account", edit_team_registration_path %>
-		<% else %>
-		  <%= link_to "Sign in", new_team_session_path %>
-        <% end %> 
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">	
+          <%= link_to "Berkman Scavenger Hunt", root_url, { :class=>"brand" } %>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><%= link_to "Home", root_url %></li>
+              <li><%= link_to "Help", help_dashboards_url %></li>
+			  <% if team_signed_in? %>
+				<li><%= link_to "Edit Account", edit_team_registration_path %></li>
+	            <li><%= link_to "Sign Out", destroy_team_session_path, :method => :delete %></li>
+			  <% else %>
+			    <li><%= link_to "Sign In", new_team_session_path %></li>
+	          <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-	<div id="logo"><%= link_to "Berkman Scavenger Hunt", root_url %></div>
-	<div id="content">
-		<%= yield %>
-	</div>	
+
+    <div class="container">
+      <%= yield %>
+    </div> <!-- /container -->
 </body>
 </html>

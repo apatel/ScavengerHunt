@@ -1,10 +1,14 @@
 <h2>Your Clue</h2>
 
-<% @clue.next_location.clues.each do |clue| %>
-  <%= clue.clue_text %>
-  <br /><br />
-  <% clue.hints.each do |hint| %>
-    <a href="#" onclick="toggle_hints('hints');">View Hint</a>
-    <div id="hints" style="display:none;"><%= hint.hint_text %></div>
-  <% end %>	
-<% end %>
+<% unless @clue.nil? %>
+  <% @clue.next_location.clues.each do |clue| %>
+   <%= clue.clue_text %>
+    <br /><br />
+    <% clue.hints.each do |hint| %>
+      <a href="#" onclick="toggle_hints('hints');">View Hint</a>
+      <div id="hints" style="display:none;"><%= hint.hint_text %></div>
+    <% end %>	
+  <% end %>
+<% else %>
+  No Clue Available
+<% end %>  

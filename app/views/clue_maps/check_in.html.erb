@@ -1,0 +1,9 @@
+<h2>Check In</h2>
+
+<%= form_tag(:controller => 'clue_maps', :action => 'show_clue') do %>
+  <%= hidden_field_tag :current, @current_location %>
+  <%= label_tag "Team: " %>
+  <%= text_field_tag :login %>
+  <br />
+  <%= submit_tag 'Check In' %>
+<% end %>  

@@ -2,6 +2,8 @@ ScavengerHunt::Application.routes.draw do
   resources :clue_maps do
     collection do
       get 'show_clue'
+      post 'show_clue'
+      get 'check_in'
     end
   end    
 
@@ -11,7 +13,11 @@ ScavengerHunt::Application.routes.draw do
 
   resources :locations
 
-  resources :dashboards
+  resources :dashboards do
+    collection do
+      get 'help'
+    end
+  end  
 
   devise_for :teams
 

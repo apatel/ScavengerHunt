@@ -1,14 +1,9 @@
-<h1>Dashboard</h1>
-
-<% if current_team.try(:admin?) %>
-	<h3><%= link_to "Locations", locations_url %></h3>
-	<h3><%= link_to "Clues", clues_url %></h3>
-	<h3><%= link_to "Hints", hints_url %></h3>
-	<h3><%= link_to "Clue Maps", clue_maps_url %></h3>
-	<h3><%= link_to "Check In Page", check_in_clue_maps_url(:current => 3) %></h3>
+<h1>Help</h1>
 	
-<% elsif team_signed_in? %>	
-	<h3><%= link_to "View First Clue", show_clue_clue_maps_url(:team_id => current_team.id, :first => true) %></h3>
+<% if team_signed_in? %>	
+<p>
+	Help stuff will go here.
+</p>
 <% else %>	
 	Welcome to the Scavenger Hunt Application!
 <% end %>

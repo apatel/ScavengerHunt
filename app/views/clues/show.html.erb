@@ -6,6 +6,7 @@
     <% @clue.hints.each do |hint| %>
       <a href="#" onclick="toggle_hints('hints');">View Hint</a>
       <div id="hints" style="display:none;"><%= hint.hint_text %></div>
+	  <br /><br />
     <% end %>
 <% else %>
   No Clue Available

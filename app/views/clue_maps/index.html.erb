@@ -6,7 +6,7 @@
   
   <% clue_map = ClueMap.find(:all, :conditions => {:team_id => team.id}) %>
   <% first = ClueMap.find(:first, :conditions => {:team_id => team.id, :first => true}) %>
-  <% unless first.nil? || clue_map.nil? %>
+  <% unless first.nil? && clue_map.nil? %>
     <h3><%= team.login %></h3>
   
   <h4>Clue Map</h4>

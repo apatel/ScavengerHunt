@@ -1,0 +1,16 @@
+<h2>Location</h2>
+
+<% unless @location.nil? %>
+   <%= @location.name %> <%= link_to "Edit", edit_location_url(@location) %>
+    <br /><br />
+    <% @location.clues.each do |clue| %>
+	  Clue:<br /> 
+	  <%= clue.clue_text %> <%= link_to "Edit", edit_clue_url(clue) %><br /><br />
+      <% clue.hints.each do |hint| %>
+        <a href="#" onclick="toggle_hints('hints');">View Hint</a>
+        <div id="hints" style="display:none;"><%= hint.hint_text %> <%= link_to "Edit", edit_hint_url(hint) %></div>
+      <% end %>
+    <% end %>
+<% else %>
+  No Location Available
+<% end %>  

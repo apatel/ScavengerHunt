@@ -17,8 +17,8 @@
 	</tr>
 	<% unless first.nil? %>	
       <tr>
-		<td><%= first.current_location.name %>*</td>
-	    <td><%= first.next_location.name %></td>
+		<td><%= link_to first.current_location.name, location_url(first.current_location) %>*</td>
+	    <td><%= link_to first.next_location.name, location_url(first.next_location) %></td>
 		<td><%= link_to "Edit", edit_clue_map_url(first) %> | <%= link_to "Delete", first, confirm: 'Are you sure?', method: :delete %></td>
 	  </tr>
     <% end %>
@@ -26,8 +26,8 @@
     <% clue_map.each do |stop| %>
       <% unless stop==first %>
         <tr>
-          <td><%= stop.current_location.name %></td>
-  	      <td><%= stop.next_location.name %></td>
+          <td><%= link_to stop.current_location.name, location_url(stop.current_location) %></td>
+  	      <td><%= link_to stop.next_location.name, location_url(stop.next_location) %></td>
   	      <td><%= link_to "Edit", edit_clue_map_url(stop) %> | <%= link_to "Delete", stop, confirm: 'Are you sure?', method: :delete %></td>
         </tr>
 	  <% end %> 
@@ -46,7 +46,7 @@
         <% @check_ins.each do |check_in| %>
           <tr>
             <td><%= check_in.location.name %></td>
-	        <td><%= check_in.created_at.strftime("%I:%M%p") %></td>
+	        <td><%= check_in.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M%p") %></td>
 	        <td><%= link_to "Delete", check_in, confirm: 'Are you sure?', :controller => "check_ins", method: :delete %></td>
           </tr>
         <% end %>

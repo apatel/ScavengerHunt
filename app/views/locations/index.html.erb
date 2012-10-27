@@ -10,7 +10,7 @@
 	</tr>	
 <% @locations.each do |location| %>
 <tr>
-  <td><%= location.name %></td>
+  <td><%= link_to location.name, location_url(location) %></td>
   <td>http://www.cupcakefu.com/clue_maps/check_in?current=<%= location.id %></td>
   <td>
   	<%= link_to "Edit", edit_location_url(location) %> | 

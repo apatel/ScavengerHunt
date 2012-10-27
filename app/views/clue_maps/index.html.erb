@@ -6,7 +6,7 @@
   
   <% clue_map = ClueMap.find(:all, :conditions => {:team_id => team.id}) %>
   <% first = ClueMap.find(:first, :conditions => {:team_id => team.id, :first => true}) %>
-  <% unless first.nil? && clue_map.nil? %>
+  <% unless clue_map.nil? || clue_map.empty? %>
     <h3><%= team.login %></h3>
   
   <h4>Clue Map</h4>
@@ -15,13 +15,14 @@
 		<th>Current Location</th>
 		<th>Next Location</th>
 		<th>Actions</th>
-	</tr>	
+	</tr>
+	<% unless first.nil? %>	
       <tr>
 		<td><%= first.current_location.name %>*</td>
 	    <td><%= first.next_location.name %></td>
 		<td><%= link_to "Edit", edit_clue_map_url(first) %> | <%= link_to "Delete", first, confirm: 'Are you sure?', method: :delete %></td>
 	  </tr>
-    
+    <% end %>
 	
       <% clue_map.each do |stop| %>
         <% unless stop==first %>

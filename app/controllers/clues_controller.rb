@@ -16,6 +16,10 @@ class CluesController < ApplicationController
     end
   end
   
+  def show
+    @clue = Clue.find(params[:id])
+  end  
+  
   def create
     @clue = Clue.new(params[:clue])
 

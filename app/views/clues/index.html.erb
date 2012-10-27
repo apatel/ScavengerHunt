@@ -9,7 +9,7 @@
 	</tr>	
 <% @clues.each do |clue| %>
 <tr>
-  <td><%= clue.clue_text %></td>
+  <td><%= link_to clue.clue_text, clue_url(clue) %></td>
   <td>
   	<%= link_to "Edit", edit_clue_url(clue) %> | 
   	<%= link_to "Delete", clue, confirm: 'Are you sure?', method: :delete %>

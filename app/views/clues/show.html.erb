@@ -1,0 +1,12 @@
+<h2>Clue</h2>
+
+<% unless @clue.nil? %>
+   <%= @clue.clue_text %>
+    <br /><br />
+    <% @clue.hints.each do |hint| %>
+      <a href="#" onclick="toggle_hints('hints');">View Hint</a>
+      <div id="hints" style="display:none;"><%= hint.hint_text %></div>
+    <% end %>
+<% else %>
+  No Clue Available
+<% end %>  

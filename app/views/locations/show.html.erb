@@ -6,13 +6,11 @@
     <% @location.clues.each do |clue| %>
 	  Clue:<br /> 
 	  <%= clue.clue_text %> <%= link_to "Edit", edit_clue_url(clue) %><br /><br />
-	  <a href="#" onclick="toggle_hints('hints');">View Hint(s)</a>
-      <div id="hints" style="display:none;">
-	    <% clue.hints.each do |hint| %>
-          <%= hint.hint_text %> <%= link_to "Edit", edit_hint_url(hint) %>
-		  <br /><br />
-        <% end %>
-	  </div>	
+      <% clue.hints.each do |hint| %>
+	    <a href="#" onclick='toggle_hints("hint<%=hint.id%>");'>View Hint</a>
+        <div id="hint<%=hint.id%>" style="display:none;"><%= hint.hint_text %> <%= link_to "Edit", edit_hint_url(hint) %></div>
+		<br />
+      <% end %>
     <% end %>
 <% else %>
   No Location Available
